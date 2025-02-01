@@ -20,7 +20,7 @@ document.addEventListener('keyup', event => {
   }
 });
 
-
+// Funtion zur Verabeitung der Keyboard eingaben
 document.addEventListener('keyup', event => {
   if (event.key === 'Backspace') {
     if (display.textContent.length > 0) {
