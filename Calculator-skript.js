@@ -12,19 +12,26 @@ buttons.forEach(button => {
   });
 });
 
-function pressedESC(){
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
+document.addEventListener('keyup', event => {
+  if (event.key === 'Escape') {
+    if (display.textContent.length > 0) {
       display.textContent = '';
     }
-  });
-}
+  }
+});
 
 
+document.addEventListener('keyup', event => {
+  if (event.key === 'Backspace') {
+    if (display.textContent.length > 0) {
+      display.textContent = display.textContent.slice(0, -1);
+    }
+  }
+});
 
 // Funktion zur Verarbeitung der Button-Klicks
 function handleButtonClick(value) {
-  if (value === 'AC' || pressedESC()) {
+  if (value === 'AC') {
     display.textContent = '';
   } else if (value === '<-') {
     display.textContent = display.textContent.slice(0, -1);
