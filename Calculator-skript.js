@@ -12,9 +12,19 @@ buttons.forEach(button => {
   });
 });
 
+function pressedESC(){
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      display.textContent = '';
+    }
+  });
+}
+
+
+
 // Funktion zur Verarbeitung der Button-Klicks
 function handleButtonClick(value) {
-  if (value === 'AC') {
+  if (value === 'AC' || pressedESC()) {
     display.textContent = '';
   } else if (value === '<-') {
     display.textContent = display.textContent.slice(0, -1);
