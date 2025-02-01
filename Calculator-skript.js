@@ -29,6 +29,25 @@ document.addEventListener('keyup', event => {
   }
 });
 
+document.addEventListener('keydown', event => {
+  if (event.key >= '0' && event.key <= '9') {
+    display.textContent += event.key;
+  } else if (event.key === `.`){
+    if (!display.textContent.includes(`.`)) {
+      display.textContent += `.`;
+    }
+  } else if ([`+`, `-`, `*`, `/`].includes(event.key)) {
+    display.textContent += event.key;
+  } else if (event.key === `Enter`){
+    try {
+      display.textContent = eval(display.textContent); 
+    } catch (error) {
+      display.textContent = 'Error';
+    }
+  }
+});
+
+
 // Funktion zur Verarbeitung der Button-Klicks
 function handleButtonClick(value) {
   if (value === 'AC') {
